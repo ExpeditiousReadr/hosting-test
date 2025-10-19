@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Residential Photo Gallery</title>
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+	<body>
+		<header>
+			<nav class="navigation">
+				<div id="logo">
+				<img src="res/misc/logo.jpg"><img>
+				</div>
+				<a href="index.html">Home</a>
+				<a href="photo-gallery-residential.html">Photo Gallery - Residential</a>
+				<a href="photo-gallery-commercial.html">Photo Gallery - Commercial</a>
+				<a href="testimonials.html">Testimonials</a>
+				<a href="contact-us.html">Contact Us</a>
+			</nav>
+		</header>
+		<hr>
+		<!--		<h1>Residential</h1>-->
+		<main>
+			<h2>Custom home</h2>
+			<hr>
+			<div class="carousel">
+				<p class="carousel_button_next" onclick="nextImage(document.querySelectorAll('.carousel img'))">forward</p>
+				<p class="carousel_button_prev" onclick="nextImageButInverted(document.querySelectorAll('.carousel img'))">forward 2</p>
+				<img src="res/projects/residential/custom-home/0.jpg" class="active">
+				<img src="res/projects/residential/custom-home/1.jpg"class="passive">
+				<img src="res/projects/residential/custom-home/2.jpg"class="passive">
+				<img src="res/projects/residential/custom-home/3.jpg"class="passive">
+				<img src="res/projects/residential/custom-home/4.jpg"class="passive">
+				<img src="res/projects/residential/custom-home/5.jpg"class="passive">
+			</div>
+			<hr>
+		</main>
+	</body>
+	<script>
+		const images = document.querySelectorAll('.carousel img');
+//		console.log(imgs)
+		var currImgIndex = 0;
+		function nextImage(imgs){
+			
+//			console.log("curr index = " + currImgIndex + " elementIndex = " + currImgIndex%imgs.length)
+			imgs[currImgIndex].classList.remove('active');
+			imgs[currImgIndex].classList.add('passive');
+			currImgIndex=((currImgIndex+1)%imgs.length+imgs.length)%imgs.length;
+
+			imgs[currImgIndex].classList.add('active');
+			imgs[currImgIndex].classList.remove('passive');
+		}
+		function nextImageButInverted(imgs){
+			imgs[currImgIndex].classList.remove('active');
+			imgs[currImgIndex].classList.add('passive');
+			currImgIndex = ((currImgIndex-1)%imgs.length+imgs.length)%imgs.length;
+			imgs[currImgIndex].classList.add('active');
+			imgs[currImgIndex].classList.remove('passive');
+		}
+	</script>
+</html>
+
